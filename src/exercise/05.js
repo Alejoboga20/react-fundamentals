@@ -20,11 +20,18 @@ const Box = ({children, className, style}) => (
   </div>
 )
 
-const BoxWithSizeProp = ({children, size, style}) => (
-  <div className={`box box--${size}`} style={{fontStyle: 'italic', ...style}}>
-    {children}
-  </div>
-)
+const BoxWithSizeProp = ({children, className = '', size, style}) => {
+  const sizeProp = size ? `box--${size}` : ''
+
+  return (
+    <div
+      className={`box ${className} ${sizeProp}`}
+      style={{fontStyle: 'italic', ...style}}
+    >
+      {children}
+    </div>
+  )
+}
 
 const smallBox = (
   <div
