@@ -20,6 +20,12 @@ const Box = ({children, className, style}) => (
   </div>
 )
 
+const BoxWithSizeProp = ({children, size, style}) => (
+  <div className={`box box--${size}`} style={{fontStyle: 'italic', ...style}}>
+    {children}
+  </div>
+)
+
 const smallBox = (
   <div
     className="box box--small"
@@ -57,6 +63,18 @@ function App() {
       <Box className="box--large" style={{backgroundColor: 'orange'}}>
         large orange box
       </Box>
+
+      <hr />
+
+      <BoxWithSizeProp size="small" style={{backgroundColor: 'lightblue'}}>
+        small lightblue box
+      </BoxWithSizeProp>
+      <BoxWithSizeProp size="medium" style={{backgroundColor: 'pink'}}>
+        medium pink box
+      </BoxWithSizeProp>
+      <BoxWithSizeProp size="large" style={{backgroundColor: 'orange'}}>
+        large orange box
+      </BoxWithSizeProp>
     </div>
   )
 }
